@@ -1,0 +1,22 @@
+.hero-section {
+  height: 90vh; /* 70% of viewport height */
+  max-height: 700px; /* optional limit */
+}
+
+
+/* hero-section */
+/* Hero.css */
+.brand-name {
+  color: #ffcc00; /* Golden */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  font-style: italic;
+}
+
+.hero-desc {
+  color: #ffffff;  /* Pure white text */
+  font-size: 1.1rem; /* Slightly larger */
+  line-height: 1.8;
+  max-width: 850px; /* Wider for clarity */
+  margin: 0 auto;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8); /* glow effect */
+}
