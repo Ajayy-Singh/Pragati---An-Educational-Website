@@ -14,6 +14,7 @@ const Navbar = () => {
             style={{ maxWidth: '200px' }}
         />
         <Nav.Link href="/">Home</Nav.Link>
+        <Nav.Link href='/resourse'>Resourse</Nav.Link>
         <Nav.Link href="/about">About</Nav.Link>
         <Nav.Link href="/contact">Contact</Nav.Link>
         </div>
