@@ -25,9 +25,21 @@ const Hero = () => {
         style={{ objectFit: "cover" }}
       />
 
-      {/* Overlay with Text */}
-      <div className="position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center bg-dark bg-opacity-50">
-        <h1 className="text-white display-4 fw-bold">Welcome to My Website</h1>
+      {/* Overlay */}
+      <div className="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-center bg-dark bg-opacity-50 px-3">
+        <h1 className="text-white display-4 fw-bold">
+          Welcome to <span className="brand-name">Pragati</span>
+        </h1>
+
+        {/* Paragraph Container */}
+        <div className="hero-desc-box mt-4">
+          <p className="hero-desc">
+            This platform provides well-organized, semester-wise notes designed to make learning easier 
+            for B.Tech students. With clear, concise, and reliable study material, it helps first-year 
+            and computer science students build strong fundamentals. Our goal is to simplify preparation 
+            and support academic success through accessible, student-friendly resources.
+          </p>
+        </div>
       </div>
     </div>
   );
