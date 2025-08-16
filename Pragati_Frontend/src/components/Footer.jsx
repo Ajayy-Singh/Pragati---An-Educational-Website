@@ -8,6 +8,7 @@ import {
 
 const Footer = () => {
   return (
+
     <footer className="bg-dark text-light pt-5 pb-3">
       <div className="container">
         <div className="row text-center text-md-start">
@@ -19,6 +20,7 @@ const Footer = () => {
   to make learning easier and effective.
 </p>
           </div>
+
 
           {/* Quick Links */}
           <div className="col-md-3 mb-4">
