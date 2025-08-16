@@ -10,7 +10,6 @@ const Home = () => {
     <div>
       <Header/>
       <Hero/>
-      <Subjects/>
       <Footer/>
     </div>
   )
