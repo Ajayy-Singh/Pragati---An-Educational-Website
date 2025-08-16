@@ -4,7 +4,7 @@ import logo from '../assets/logo.webp'
 
 const Navbar = () => {
   return (
-    <Nav className="navbar navbar-light bg-light">
+    <Nav className="navbar navbar-light bg-light shadow-sm">
         <img className='mx-3' style={{ width: '50px', height: '50px' }} src={logo} alt="logo" />
         <div className='d-flex mx-4'>
         <input
