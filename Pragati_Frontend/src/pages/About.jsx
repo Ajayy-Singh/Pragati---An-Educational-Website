@@ -1,6 +1,8 @@
 // src/pages/About.jsx
 import React from "react";
 import Navbar from "../components/Navbar";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const About = () => {
 
@@ -235,6 +237,7 @@ const About = () => {
     </div>
     </div>
       </section>
+      <Footer/>
     </div>
   );
 };
@@ -331,6 +334,7 @@ const TeamCard = ({ member }) => {
           </a>
         </div>
       </div>
+      
     </div>
   );
 };
