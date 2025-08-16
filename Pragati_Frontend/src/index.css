@@ -1,0 +1,5 @@
+.hero-section {
+  height: 90vh; /* 70% of viewport height */
+  max-height: 700px; /* optional limit */
+}
+
