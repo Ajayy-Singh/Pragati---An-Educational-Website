@@ -1,8 +1,10 @@
+
 import React, { useRef } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { FaTwitter, FaFacebookF, FaGoogle, FaInstagram } from 'react-icons/fa'
 import emailjs from 'emailjs-com'
+
 
 const Contact = () => {
   const form = useRef()
@@ -30,6 +32,7 @@ const Contact = () => {
   }
 
   return (
+
     <div className="position-relative min-vh-100 w-100 bg-light">
       <Header />
 

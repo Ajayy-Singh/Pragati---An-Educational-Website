@@ -79,7 +79,7 @@ const Footer = () => {
         </p>
         <p className="text-center mb-0 small">
           Designed with <span style={{ color: "red" }}>❤️</span> by{" "}
-          <strong className="text-gradient">Techno Ninjas</strong>
+          <strong className="text-gradient">Pragati Team</strong>
         </p>
       </div>
     </footer>

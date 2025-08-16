@@ -1,11 +1,33 @@
 import React, { useState } from "react";
 import { Card, Form } from "react-bootstrap";
 import "./Subjects.css";
+import { useNavigate } from "react-router-dom";
 
 const Subjects = () => {
-  const sem1Subjects = ["Mathematics I", "Physics", "Chemistry", "Programming in C", "Electronics", "English"];
-  const sem2Subjects = ["Mathematics II", "Data Structures", "Digital Logic", "OOPS in C++", "Discrete Math", "Economics"];
-  const sem3Subjects = ["DBMS", "Computer Networks", "Operating System", "Software Engineering", "Java", "Computer Graphics"];
+  const sem1Subjects = [
+    "Mathematics I",
+    "Physics",
+    "Chemistry",
+    "Programming in C",
+    "Electronics",
+    "English",
+  ];
+  const sem2Subjects = [
+    "Mathematics II",
+    "Data Structures",
+    "Digital Logic",
+    "OOPS in C++",
+    "Discrete Math",
+    "Economics",
+  ];
+  const sem3Subjects = [
+    "DBMS",
+    "Computer Networks",
+    "Operating System",
+    "Software Engineering",
+    "Java",
+    "Computer Graphics",
+  ];
 
   const semesters = [
     { title: "Semester 1", subjects: sem1Subjects },
@@ -15,6 +37,8 @@ const Subjects = () => {
 
   // State for search input
   const [searchTerm, setSearchTerm] = useState("");
+
+  const navigate = useNavigate();
 
   // Function to filter subjects
   const filterSubjects = (subjects) => {
@@ -53,8 +77,16 @@ const Subjects = () => {
             {/* Scrollable Row */}
             <div className="scroll-container d-flex pb-3">
               {filteredSubjects.map((sub, i) => (
-                <div key={i} className="me-3 flex-shrink-0" style={{ width: "220px" }}>
-                  <Card className="h-100 shadow-sm text-center">
+                <div
+                  key={i}
+                  className="me-3 flex-shrink-0"
+                  style={{ width: "220px" }}
+                >
+                  <Card
+                    className="h-100 shadow-sm text-center"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => navigate(`/subjects/${sub}`)} // Navigate to details
+                  >
                     <Card.Body className="d-flex align-items-center justify-content-center">
                       <Card.Title className="mb-0">{sub}</Card.Title>
                     </Card.Body>
