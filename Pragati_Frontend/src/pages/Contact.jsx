@@ -2,6 +2,7 @@
 import React, { useRef } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import ContactCard from '../components/ContactCard'
 import { FaTwitter, FaFacebookF, FaGoogle, FaInstagram } from 'react-icons/fa'
 import emailjs from 'emailjs-com'
 
@@ -37,22 +38,17 @@ const Contact = () => {
       <Header />
 
       <div className="container py-5 min-vh-100 d-flex flex-column flex-md-row justify-content-between align-items-center">
-        
         {/* Left Side */}
-        <div className="text-dark mb-4 mb-md-0 col-md-5">
+        <div className="text-dark mb-4 mb-md-0 col-md-5 d-flex flex-column align-items-center justify-content-center text-center">
+          <h1>Contact Us</h1>
           <p className="text-muted mb-4">
             We’d love to hear from you! Whether you have questions, feedback, or business inquiries, our team is ready to help. Simply fill out the form, and we’ll respond as quickly as possible.
           </p>
-          <div className="d-flex fs-4">
-            <a href="#" className="text-dark me-3"><FaTwitter className="text-primary" /></a>
-            <a href="#" className="text-dark me-3"><FaFacebookF className="text-primary" /></a>
-            <a href="#" className="text-dark me-3"><FaGoogle className="text-danger" /></a>
-            <a href="#" className="text-dark"><FaInstagram className="text-warning" /></a>
-          </div>
+          <ContactCard />
         </div>
 
         {/* Right Side - Contact Form */}
-        <div className="bg-secondary text-white p-4 rounded shadow col-md-6 col-lg-4">
+        <div className="bg-secondary text-white p-4 rounded shadow col-md-6 col-lg-6">
           <h3 className="fw-semibold mb-2">Contact Form</h3>
           <p className="text-light small mb-4">Fill out the form and we will get back to you soon.</p>
 
