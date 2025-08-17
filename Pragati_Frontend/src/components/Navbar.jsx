@@ -1,11 +1,11 @@
 import React from 'react'
 import { Nav } from 'react-bootstrap'   
-import logo from '../assets/logo.png' 
+import Logo from "../assets/Logo.png" 
 
 const Navbar = () => {
   return (
     <Nav className="navbar navbar-light bg-light shadow-sm">
-        <img className='mx-3' style={{ width: '50px', height: '50px' }} src={logo} alt="logo" />
+        <img className='mx-3' style={{ width: '50px', height: '50px' }} src={Logo} alt="logo" />
         <div className='d-flex mx-4'>
         <input
             type="text"
