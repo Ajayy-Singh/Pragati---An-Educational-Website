@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import AdminSidebar from "./adminPage/AdminSidebar";
 import AdminContent from "./adminPage/AdminContent";
 import AdminActions from "./adminPage/AdminActions";
-import AdminActions from "./adminPage/AdminActions";
 
 const AdminPanel = () => {
   const [selectedAction, setSelectedAction] = useState("dashboard");
