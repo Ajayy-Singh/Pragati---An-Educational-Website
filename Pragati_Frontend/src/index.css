@@ -1,3 +1,4 @@
+
 .hero-section {
   height: 90vh; /* 70% of viewport height */
   max-height: 700px; /* optional limit */
@@ -77,3 +78,10 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
           }
+
+
+
+          .footer-custom {
+  background-color: rgb(44, 44, 44); /* Light black / dark gray */
+  color: #f1f1f1; /* Light text */
+}
