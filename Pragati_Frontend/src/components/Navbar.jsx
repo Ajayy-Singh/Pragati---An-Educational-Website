@@ -1,6 +1,7 @@
 import React from 'react'
 import { Nav } from 'react-bootstrap'   
 import Logo from "../assets/Logo.png" 
+import Sidebar from './Sidebar/Sidebar'
 
 const Navbar = () => {
   return (
@@ -17,6 +18,7 @@ const Navbar = () => {
         <Nav.Link href='/resourse'>Resourse</Nav.Link>
         <Nav.Link href="/about">About</Nav.Link>
         <Nav.Link href="/contact">Contact</Nav.Link>
+        <Sidebar />
         </div>
     </Nav>
   )

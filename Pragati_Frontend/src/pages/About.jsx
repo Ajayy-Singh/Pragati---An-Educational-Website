@@ -9,21 +9,21 @@ const About = () => {
   const teamMembers = [
   {
     name: "Ajay Singh",
-    img: "https://randomuser.me/api/portraits/men/32.jpg",
+    img: "https://media.licdn.com/dms/image/v2/D4D03AQFoCOxYNsxw6Q/profile-displayphoto-shrink_400_400/B4DZZNepXiG8Ag-/0/1745056602015?e=1758153600&v=beta&t=iMwQlIsL3l9mEUpaxexdkTHMWkQo45PNmOSdo8uYfRQ",
     email: "ajaysingh1438970@gmail.com",
     linkedin: "https://www.linkedin.com/in/ajay5ingh/",
     github: "https://github.com/Ajayy-Singh",
   },
   {
     name: "Harshwardhan Ahirwar",
-    img: "https://randomuser.me/api/portraits/women/44.jpg",
+    img: "https://media.licdn.com/dms/image/v2/D5603AQHha2ejYxpSCg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1701541313750?e=1758153600&v=beta&t=fQPTuFenkU5pLUz9mvaAfeb29U3eHuKx2ciIZS0_E6M",
     email: "ahirwarharshwardhan2@gmail.com",
     linkedin: "https://www.linkedin.com/in/harshwardhanahirwar",
     github: "https://github.com/harshwardhanahirwar",
   },
   {
     name: "Naman Gupta",
-    img: "https://randomuser.me/api/portraits/men/65.jpg",
+    img: "https://media.licdn.com/dms/image/v2/D4D03AQFjobRCQEgzxA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1701700603335?e=1758153600&v=beta&t=OlPoUHz6k5rmmHNCYMxODip37ZEGoKfvdUtUbxlpJEA",
     email: "guptanamang119@email.com",
     linkedin: "https://www.linkedin.com/in/naman-gupta-2b603b259/",
     github: "https://github.com/Namangupta119",
