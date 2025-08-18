@@ -18,8 +18,26 @@ const AdminPanel = () => {
       </div>
 
       {/* Right Section */}
-      <div style={{ width: "250px" }} className="bg-light p-3">
-        <h6>Quick Info</h6>
+      <div
+        style={{
+          width: "250px",
+          flexShrink: 0,
+          background: "#f1f1f1",
+          borderLeft: "1px solid #ddd",
+          padding: "15px",
+          overflowY: "auto",
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+        }}
+      >
+        <style>
+          {`
+            div::-webkit-scrollbar {
+              display: none;
+            }
+          `}
+        </style>
+        <AdminActions selectedAction={selectedAction} />
         <p>Some extra details can go here.</p>
       </div>
     </div>
