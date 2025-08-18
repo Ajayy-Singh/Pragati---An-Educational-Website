@@ -3,8 +3,8 @@ import { BsHouse, BsPerson, BsShare } from "react-icons/bs";
 
 const SidebarNav = ({ active, setActive }) => {
   return (
-    <nav className="flex-grow-1 p-3">
-      <ul className="nav nav-pills flex-column gap-2">
+    <nav className="p-3 flex-grow-1">
+      <ul className="gap-2 nav nav-pills flex-column">
         {/* Home */}
         <li className="nav-item">
           <a
@@ -21,14 +21,18 @@ const SidebarNav = ({ active, setActive }) => {
         {/* Dashboard */}
         <li className="nav-item">
           <a
-            href="#Dashboard"
+            href="/student"
+            
             className={`btn btn-outline-light w-100 d-flex align-items-center gap-2 ${
               active === "Dashboard" ? "active" : "text-dark"
             }`}
             onClick={() => setActive("Dashboard")}
           >
-            <BsPerson /> Dashboard
+            <BsPerson /> Dashboard 
           </a>
+
+            
+          
         </li>
 
         {/* Share */}
