@@ -12,6 +12,8 @@ import ResourceList from './components/ResourseList';
 import BooksList from "./components/BooksList";
 import NotesList from './components/NotesList';
 import PapersList from './components/PapersList';
+import AdminPanel from './components/adminPanel/AdminPanel';
+import AddSubject from './components/adminPanel/AddSubject';
 
 function App() {
   return (
@@ -28,6 +30,7 @@ function App() {
         <Route path="/subjects/:subjectName/books" element={<BooksList />} />
         <Route path="/subjects/:subjectName/notes" element={<NotesList />} />
         <Route path="/subjects/:subjectName/papers" element={<PapersList />} />
+        <Route path='/admin' element={<AdminPanel/>} />
 
       </Routes>
   );
