@@ -82,7 +82,7 @@ const AdminPanel = () => {
             }
           `}
         </style>
-     <AdminActions selectedAction={selectedAction} />
+        <AdminActions selectedAction={selectedAction} />
         <p>Some extra details can go here.</p>
       </div>
     </div>
