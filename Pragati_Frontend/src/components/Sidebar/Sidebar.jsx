@@ -27,12 +27,13 @@ const Sidebar = () => {
 
       {/* Sidebar */}
       <div
-        className="position-fixed top-0 end-0 h-100 "
+        className="position-fixed top-0 end-0 h-100"
         style={{
           width: "250px",
           transition: "transform 0.3s ease-in-out",
           zIndex: 1050,
           transform: isOpen ? "translateX(0)" : "translateX(100%)",
+          backgroundColor: "#e9ecef", 
         }}
       >
         <SidebarHeader onClose={closeSidebar} />

@@ -65,12 +65,12 @@
   color: #0d6efd;
   transform: scale(1.2);
 }
-
+/* 
 .text-gradient {
   background: linear-gradient(90deg, #ff4d6d, #ff9f1c);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
+} */
 
 .footer-custom {
   background-color: rgb(44, 44, 44); /* Light black / dark gray */
