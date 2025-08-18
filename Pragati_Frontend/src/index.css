@@ -1,9 +1,7 @@
-
 .hero-section {
   height: 90vh; /* 70% of viewport height */
   max-height: 700px; /* optional limit */
 }
-
 
 /* hero-section */
 /* Hero.css */
@@ -14,15 +12,13 @@
 }
 
 .hero-desc {
-  color: #ffffff;  /* Pure white text */
+  color: #ffffff; /* Pure white text */
   font-size: 1.1rem; /* Slightly larger */
   line-height: 1.8;
   max-width: 850px; /* Wider for clarity */
   margin: 0 auto;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8); /* glow effect */
 }
-
-
 
 /* footer */
 .social-icon {
@@ -51,37 +47,32 @@
   color: #0a66c2; /* LinkedIn Blue */
 }
 
-
-
-
 /* footer last line */
 .footer-link {
-            color: #aaa;
-            text-decoration: none;
-            transition: color 0.3s ease-in-out;
-          }
-          .footer-link:hover {
-            color: #0d6efd; /* Bootstrap primary */
-          }
+  color: #aaa;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+.footer-link:hover {
+  color: #0d6efd; /* Bootstrap primary */
+}
 
-          .footer-icon {
-            color: #aaa;
-            transition: transform 0.3s ease, color 0.3s ease;
-          }
-          .footer-icon:hover {
-            color: #0d6efd;
-            transform: scale(1.2);
-          }
+.footer-icon {
+  color: #aaa;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.footer-icon:hover {
+  color: #0d6efd;
+  transform: scale(1.2);
+}
 
-          .text-gradient {
-            background: linear-gradient(90deg, #ff4d6d, #ff9f1c);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-          }
+.text-gradient {
+  background: linear-gradient(90deg, #ff4d6d, #ff9f1c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-
-
-          .footer-custom {
+.footer-custom {
   background-color: rgb(44, 44, 44); /* Light black / dark gray */
   color: #f1f1f1; /* Light text */
 }
