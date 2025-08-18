@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AdminSidebar from "./adminPage/AdminSidebar";
 import AdminContent from "./adminPage/AdminContent";
-
+import AdminActions from "./adminPage/AdminActions";
 const AdminPanel = () => {
   const [selectedAction, setSelectedAction] = useState("dashboard");
 
@@ -21,6 +21,7 @@ const AdminPanel = () => {
       <div style={{ width: "250px" }} className="bg-light p-3">
         <h6>Quick Info</h6>
         <p>Some extra details can go here.</p>
+        <AdminActions />
       </div>
     </div>
   );
