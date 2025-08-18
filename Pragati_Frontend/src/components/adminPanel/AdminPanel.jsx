@@ -19,9 +19,9 @@ const AdminPanel = () => {
 
       {/* Right Section */}
       <div style={{ width: "250px" }} className="bg-light p-3">
-        <h6>Quick Info</h6>
-        <p>Some extra details can go here.</p>
-        <AdminActions />
+        {/* <h6>Quick Info</h6>
+        <p>Some extra details can go here.</p> */}
+        <AdminActions selectedAction={selectedAction} />
       </div>
     </div>
   );
