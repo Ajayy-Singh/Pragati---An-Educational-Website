@@ -1,12 +1,13 @@
 import React from 'react'
 import { Nav } from 'react-bootstrap'   
 import logo from '../assets/logo.webp'
+import Sidebar from './Sidebar'
 
 const Navbar = () => {
   return (
-    <Nav className="navbar navbar-light bg-light shadow-sm">
+    <Nav className="shadow-sm navbar navbar-light bg-light">
         <img className='mx-3' style={{ width: '50px', height: '50px' }} src={logo} alt="logo" />
-        <div className='d-flex mx-4'>
+        <div className='mx-4 d-flex'>
         <input
             type="text"
             className="form-control me-3"
@@ -23,3 +24,6 @@ const Navbar = () => {
 }
 
 export default Navbar
+
+
+
