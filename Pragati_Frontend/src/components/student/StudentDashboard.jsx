@@ -2,21 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 
 // Import all the components we've converted
-import Sidebar from './StudentDesFolder/Sidebar';
-import Header from './StudentDesFolder/Header';
-import DashboardHome from './StudentDesFolder/DashboardHome';
-import MyCourses from './StudentDesFolder/MyCourses';
-import Grades from './StudentDesFolder/Grades';
-import Profile from './StudentDesFolder/Profile';
+import Sidebar from './StudentDashboard/Sidebar';
+import Header from './StudentDashboard/Header';
+import DashboardHome from './StudentDashboard/DashboardHome';
+import MyCourses from './StudentDashboard/MyCourses';
+import Grades from './StudentDashboard/Grades';
+import Profile from './StudentDashboard/Profile';
 
 // Import mock data
-import { initialUser, allCourses } from './StudentDesFolder/mockData';
+import { initialUser, allCourses } from './StudentDashboard/mockData';
 import { 
     stats, 
     deadlines, 
     grades, 
     notifications 
-} from './StudentDesFolder/mockData';
+} from './StudentDashboard/mockData';
 
 // --- MAIN APP COMPONENT ---
 export default function StudentDashboard() {
