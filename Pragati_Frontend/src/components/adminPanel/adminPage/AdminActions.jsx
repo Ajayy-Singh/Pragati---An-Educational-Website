@@ -7,8 +7,8 @@ const AdminActions = ({ selectedAction }) => {
   const [date, setDate] = useState(new Date());
 
   const schedules = {
-    "2025-08-18": ["Team Meeting - 10:00 AM", "Student Review - 2:00 PM"],
-    "2025-08-19": ["Subject Allocation - 11:00 AM", "Admin Report - 4:00 PM"],
+    "2025-08-18": ["Team Meeting- 10:00 AM", "Student Review- 2:00 PM"],
+    "2025-08-19": ["Subject Allocation- 11:00 AM", "Admin Report- 4:00 PM"],
   };
 
   const formattedDate = date.toISOString().split("T")[0];

@@ -21,7 +21,7 @@ const AdminPanel = () => {
       {/* Right Section */}
       <div
         style={{
-          width: "250px",
+          width: "315px",
           flexShrink: 0,
           background: "#f1f1f1",
           borderLeft: "1px solid #ddd",
