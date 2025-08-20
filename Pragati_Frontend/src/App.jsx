@@ -16,7 +16,15 @@ import AdminPanel from './components/adminPanel/AdminPanel';
 import AddSubject from './components/adminPanel/AddSubject';
 
 function App() {
+   const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/message")
+      .then((res) => res.json())
+      .then((data) => setMessage(data.message));
+  }, []);
   return (
+    
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path='/resourse' element={<Resourse/>} />
