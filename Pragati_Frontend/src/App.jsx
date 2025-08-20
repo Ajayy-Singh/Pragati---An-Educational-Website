@@ -13,7 +13,6 @@ import BooksList from "./components/BooksList";
 import NotesList from './components/NotesList';
 import PapersList from './components/PapersList';
 import AdminPanel from './components/adminPanel/AdminPanel';
-import AddSubject from './components/adminPanel/AddSubject';
 
 function App() {
    const [message, setMessage] = useState("");
