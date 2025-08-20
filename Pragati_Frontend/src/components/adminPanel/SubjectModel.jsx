@@ -3,11 +3,11 @@ import { Modal, Button, Form } from "react-bootstrap";
 
 const SubjectModal = ({ show, handleClose, handleSave, subjectData, handleChange, isEdit }) => {
   return (
-    <Modal show={show} onHide={handleClose}>
-      <Modal.Header closeButton>
+    <Modal show={show} onHide={handleClose} centered>
+      <Modal.Header closeButton className="bg-white">
         <Modal.Title>{isEdit ? "✏️ Edit Subject / PDF" : "➕ Add New Subject / PDF"}</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body className="bg-white">
         <Form>
           <Form.Group className="mb-3">
             <Form.Label>Semester</Form.Label>
@@ -53,7 +53,7 @@ const SubjectModal = ({ show, handleClose, handleSave, subjectData, handleChange
           </Form.Group>
         </Form>
       </Modal.Body>
-      <Modal.Footer>
+      <Modal.Footer className="bg-white">
         <Button variant="secondary" onClick={handleClose}>
           Cancel
         </Button>
