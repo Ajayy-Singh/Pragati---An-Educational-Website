@@ -1,10 +1,10 @@
 import React from 'react'
 import Navbar from './Navbar'
 
-const Header = () => {
+const Header = ({handleLogin,isLoggedIn, setIsLoggedIn}) => {
   return (
     <div>
-        <Navbar/>
+        <Navbar onLogin={handleLogin} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
     </div>
   )
 }

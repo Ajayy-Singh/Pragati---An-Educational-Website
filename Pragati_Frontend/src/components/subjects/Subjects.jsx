@@ -35,6 +35,16 @@ const Subjects = () => {
     { title: "Semester 3", subjects: sem3Subjects },
   ];
 
+  const handleIsLogin = (sub)=>{
+    const token = localStorage.getItem("token");
+    if(token){
+      navigate(`/subjects/${sub}`)   
+   }
+   else {
+    alert("Login Required")
+   }
+  }
+
   // State for search input
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -85,7 +95,7 @@ const Subjects = () => {
                   <Card
                     className="h-100 shadow-sm text-center"
                     style={{ cursor: "pointer" }}
-                    onClick={() => navigate(`/subjects/${sub}`)} // Navigate to details
+                    onClick={()=> handleIsLogin(sub)} // Navigate to details
                   >
                     <Card.Body className="d-flex align-items-center justify-content-center">
                       <Card.Title className="mb-0">{sub}</Card.Title>

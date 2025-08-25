@@ -1,24 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Nav, Button } from "react-bootstrap";
 import Logo from "../assets/Logo.png";
 import Sidebar from "./Sidebar/Sidebar";
 import Login from "./Login"; // 
+import { AuthContext } from "../AuthProvider";
 
-const NavbarComp = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+const Navbar = () => {
   const [showSidebar, setShowSidebar] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    setIsLoggedIn(true);
-    setShowModal(false); // close modal after login
-  };
-
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-    setShowSidebar(false);
-  };
+  const {isLoggedIn, logout} = useContext(AuthContext);
 
   return (
     <>
@@ -49,11 +40,11 @@ const NavbarComp = () => {
 
           {/* Login OR Sidebar */}
           {!isLoggedIn ? (
-            <Button variant="primary" onClick={() => setShowModal(true)}>
+            <Button variant="primary" onClick={() => {setShowModal(true) }}>
               SignUp/Login
             </Button>
           ) : (
-            <Sidebar onClose={handleLogout} />
+            <Sidebar onClose={logout} />
           )}
         </div>
       </Nav>
@@ -62,10 +53,9 @@ const NavbarComp = () => {
       <Login
         show={showModal}
         handleClose={() => setShowModal(false)}
-        handleLogin={handleLogin}
       />
     </>
   );
 };
 
-export default NavbarComp;
+export default Navbar;

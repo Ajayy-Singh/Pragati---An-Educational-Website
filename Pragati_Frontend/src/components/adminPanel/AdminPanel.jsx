@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AdminSidebar from "./adminPage/AdminSidebar";
 import AdminContent from "./adminPage/AdminContent";
 import AdminActions from "./adminPage/AdminActions";
+import { useNavigate } from "react-router-dom";
 
 const AdminPanel = () => {
   const [selectedAction, setSelectedAction] = useState("dashboard");
+
+  const navigate = useNavigate();
+  useEffect(()=>{
+    const role = sessionStorage.getItem("role");
+    if(role !== 'admin'){
+      navigate('/')
+    }
+  })
 
   return (
     <div

@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ListGroup } from "react-bootstrap";
 import { HouseDoorFill, BookFill, BoxArrowRight, CollectionFill } from "react-bootstrap-icons"; // Added CollectionFill for Resources
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../AuthProvider";
 
 const AdminSidebar = ({ setSelectedAction }) => {
+
+  const { logout } = useContext(AuthContext)
+
+  const navigate = useNavigate();
+
+   const handleLogout = () => {
+    logout();
+    navigate("/");
+  };
+
   return (
     <div
       className="d-flex flex-column vh-100 p-3"
@@ -14,7 +26,7 @@ const AdminSidebar = ({ setSelectedAction }) => {
     >
       {/* Sidebar Header */}
       <div className="mb-4 text-center fw-bold border-bottom pb-2 d-flex align-items-center justify-content-center">
-        <h4 className="mb-0 admin-title">Admin Panel</h4>
+        <h4 className="mb-0 admin-title" onClick={()=> navigate('/')}>Admin Panel</h4>
       </div>
 
       {/* Sidebar Menu */}
@@ -22,7 +34,7 @@ const AdminSidebar = ({ setSelectedAction }) => {
         <ListGroup.Item
           action
           className="d-flex align-items-center sidebar-item"
-          onClick={() => setSelectedAction("dashboard")}
+          onClick={() => {setSelectedAction("dashboard")}}
         >
           <HouseDoorFill className="me-2" size={18} /> Dashboard
         </ListGroup.Item>
@@ -46,9 +58,9 @@ const AdminSidebar = ({ setSelectedAction }) => {
         <ListGroup.Item
           action
           className="d-flex align-items-center sidebar-item mt-auto"
-          onClick={() => setSelectedAction("logout")}
+          onClick={()=> handleLogout()}
         >
-          <BoxArrowRight className="me-2" size={18} /> Logout
+          <BoxArrowRight className="me-2" size={18}/> Logout
         </ListGroup.Item>
       </ListGroup>
 
@@ -58,7 +70,7 @@ const AdminSidebar = ({ setSelectedAction }) => {
       </div>
 
       {/* Custom CSS */}
-      <style jsx>{`
+      <style>{`
         .sidebar-item {
           background: transparent;
           color: white;

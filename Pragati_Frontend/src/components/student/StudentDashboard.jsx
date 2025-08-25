@@ -17,6 +17,11 @@ import {
     grades, 
     notifications 
 } from './StudentDashboard/mockData';
+import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../AuthProvider';
+// const {user} = useContext(AuthContext);
+
 
 // --- MAIN APP COMPONENT ---
 export default function StudentDashboard() {
@@ -25,6 +30,8 @@ export default function StudentDashboard() {
     const [user, setUser] = useState(initialUser);
     const [searchTerm, setSearchTerm] = useState('');
     const [courses, setCourses] = useState(allCourses);
+
+    const navigate = useNavigate();
 
     // This state management logic remains unchanged
     useEffect(() => {
@@ -38,6 +45,14 @@ export default function StudentDashboard() {
             setCourses(allCourses);
         }
     }, [searchTerm, activeTab]);
+
+    useEffect(()=>{
+        const token = localStorage.getItem("token");
+        if(!token){
+            alert("SignIn Required")
+            navigate('/')
+        }
+    })
 
     const renderContent = () => {
         switch (activeTab) {

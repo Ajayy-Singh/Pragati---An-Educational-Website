@@ -28,7 +28,9 @@ import { stats, deadlines, allCourses } from './mockData'; // Import mock data
 // ];
 
 
-const DashboardHome = ({ user }) => (
+const DashboardHome = ({ user }) => {
+    
+    return (
     <>
         {/* Welcome Banner */}
         <div className="p-5 mb-4 text-white shadow-lg bg-primary rounded-4">
@@ -93,7 +95,6 @@ const DashboardHome = ({ user }) => (
                 </Card>
             </Col>
         </Row>
-    </>
-);
+    </>)};
 
 export default DashboardHome;

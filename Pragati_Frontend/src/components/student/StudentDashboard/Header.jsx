@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Navbar, Container, Form, InputGroup, Nav, Dropdown, Image, Button, Badge } from 'react-bootstrap';
 import { Menu, Search, Bell, ChevronDown, User, Settings, LogOut, Award, Calendar, Mail } from 'lucide-react';
+import { useContext } from 'react';
+import { AuthContext } from '../../../AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 // NOTE: The 'notifications' array from your first snippet must be available in this component's scope.
 const notifications = [
@@ -12,6 +15,9 @@ const notifications = [
 const Header = ({ user, setIsSidebarOpen, searchTerm, setSearchTerm }) => {
   const [isNotificationsOpen, setNotificationsOpen] = useState(false);
   const [isProfileOpen, setProfileOpen] = useState(false);
+
+  const {logout} = useContext(AuthContext);
+
 
   // Custom Toggle for the Profile Dropdown to include the user avatar and name
   const ProfileToggle = React.forwardRef(({ children, onClick }, ref) => (
@@ -95,8 +101,8 @@ const Header = ({ user, setIsSidebarOpen, searchTerm, setSearchTerm }) => {
                 <Settings size={16} className="me-2" /> Settings
               </Dropdown.Item>
               <Dropdown.Divider />
-              <Dropdown.Item href="#" className="py-2 d-flex align-items-center">
-                <LogOut size={16} className="me-2" /> Logout
+              <Dropdown.Item  onClick={logout} href="/" className="py-2 d-flex align-items-center">
+                <LogOut size={16} className="me-2"  /> Logout
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>

@@ -5,10 +5,10 @@ import Subjects from '../components/subjects/Subjects'
 import Footer from '../components/Footer'
 
 
-const Home = () => {
+const Home = ({isLoggedIn, handleLogin, setIsLoggedIn}) => {
   return (
     <div>
-      <Header/>
+      <Header onLogin={handleLogin} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}  />
       <Hero/>
       <Footer/>
     </div>

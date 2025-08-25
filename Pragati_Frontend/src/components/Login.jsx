@@ -1,14 +1,82 @@
-import React, { useState } from "react";
-import { Modal, Button, Form } from "react-bootstrap";
+import React, { useContext, useEffect, useState } from "react";
+import { Modal, Button, Form, NavItem } from "react-bootstrap";
 import "./Login.css";
+import axios from "axios";
+import { AuthContext } from "../AuthProvider";
+import { useNavigate } from "react-router-dom";
 
-const Login = ({ show, handleClose, handleLogin }) => {
+const Login = ({ show, handleClose }) => {
+  const { login } = useContext(AuthContext);
+
+  const navigate = useNavigate();
   const [isSignup, setIsSignup] = useState(false);
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
-  const handleSignup = (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSignup = async (e) => {
     e.preventDefault();
-    alert("Account created successfully!");
-    setIsSignup(false);
+    try {
+      const res = await axios.post(
+        "http://localhost:5000/api/auth/signup",
+        formData
+      );
+      if (res.data) {
+        alert(res.data.message);
+        setFormData({
+          fullName: "",
+          email: "",
+          password: "",
+          confirmPassword: "",
+        });
+      }
+      setIsSignup(false);
+    } catch (e) {
+      console.error(e);
+      alert(e.response?.data?.message || "Signup failed!");
+    }
+  };
+
+  
+
+  const handleLoginSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post("http://localhost:5000/api/auth/login", {
+        email: formData.email,
+        password: formData.password,
+      });
+
+      if (res.data.token) {
+        alert("Login Successful!");
+
+        // ✅ Update AuthContext instead of only setting localStorage
+        login(
+          { email: formData.email }, // you can replace with res.data.user if backend returns it
+          res.data.token
+        );
+        if(res.data.user.role === "admin"){
+          sessionStorage.setItem("role","admin");
+          navigate('/admin');
+        }else if(res.data.user.role === "user"){
+          navigate('/')
+        }
+        // console.log(res.data.token);
+
+        handleClose();
+      }
+    } catch (e) {
+      console.error(e);
+      alert(e.response?.data?.message || "Login failed!");
+    }
   };
 
   return (
@@ -24,34 +92,29 @@ const Login = ({ show, handleClose, handleLogin }) => {
         </p>
 
         {!isSignup ? (
-          <Form onSubmit={handleLogin}>
+          <Form onSubmit={handleLoginSubmit}>
             <Form.Group className="mb-3">
               <Form.Label>Email</Form.Label>
               <Form.Control
                 type="email"
                 placeholder="yourgmail@gmail.com"
                 required
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
               />
             </Form.Group>
 
-            {/* Password input */}
             <Form.Group className="mb-3">
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
                 placeholder="Enter your password"
                 required
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
               />
-            </Form.Group>
-
-            {/* Role dropdown (newly added) */}
-            <Form.Group className="mb-3">
-              <Form.Label>Role</Form.Label>
-              <Form.Select required>
-                <option value="">Select Role</option>
-                <option value="user">User</option>
-                <option value="admin">Admin</option>
-              </Form.Select>
             </Form.Group>
 
             <div className="d-flex justify-content-between mb-3">
@@ -63,21 +126,6 @@ const Login = ({ show, handleClose, handleLogin }) => {
             <Button type="submit" className="sign-btn w-100">
               Sign In
             </Button>
-
-            <div className="social-btn google">
-              <img
-                src="https://img.icons8.com/color/20/000000/google-logo.png"
-                alt="google"
-              />
-              Continue with Google
-            </div>
-            <div className="social-btn facebook">
-              <img
-                src="https://img.icons8.com/color/20/000000/facebook-new.png"
-                alt="facebook"
-              />
-              Continue with Facebook
-            </div>
 
             <p className="switch-text mt-3">
               Don’t have an account?{" "}
@@ -94,17 +142,38 @@ const Login = ({ show, handleClose, handleLogin }) => {
           <Form onSubmit={handleSignup}>
             <Form.Group className="mb-3">
               <Form.Label>Full Name</Form.Label>
-              <Form.Control type="text" placeholder="Enter your name" required />
+              <Form.Control
+                type="text"
+                placeholder="Enter your name"
+                required
+                name="fullName"
+                value={formData.fullName}
+                onChange={handleChange}
+              />
             </Form.Group>
 
             <Form.Group className="mb-3">
               <Form.Label>Email</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" required />
+              <Form.Control
+                type="email"
+                placeholder="Enter email"
+                required
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+              />
             </Form.Group>
 
             <Form.Group className="mb-3">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" required />
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                required
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+              />
             </Form.Group>
 
             <Form.Group className="mb-3">
@@ -113,6 +182,9 @@ const Login = ({ show, handleClose, handleLogin }) => {
                 type="password"
                 placeholder="Confirm password"
                 required
+                name="confirmPassword"
+                value={formData.confirmPassword}
+                onChange={handleChange}
               />
             </Form.Group>
 

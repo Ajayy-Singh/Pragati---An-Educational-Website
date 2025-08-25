@@ -1,10 +1,8 @@
 import React from 'react';
 import { Nav, Offcanvas } from 'react-bootstrap';
 import { Home, BookOpen, BarChart2, User, LogOut } from 'lucide-react';
-
-// --- MOCK DATA AND OTHER IMPORTS (from your original code) ---
-// This data is not used directly in the Sidebar but is kept for context.
-// ... (initialUser, stats, allCourses, etc.)
+import { useContext } from 'react';
+import { AuthContext } from '../../../AuthProvider';
 
 // --- REUSABLE COMPONENT (CONVERTED TO BOOTSTRAP) ---
 
@@ -17,7 +15,9 @@ const Sidebar = ({ isOpen, setIsOpen, activeTab, setActiveTab }) => {
   ];
 
   const handleClose = () => setIsOpen(false);
-
+  
+  const {logout} = useContext(AuthContext);
+  
   const sidebarContent = (
     <>
       {/* Sidebar Header */}
@@ -50,10 +50,10 @@ const Sidebar = ({ isOpen, setIsOpen, activeTab, setActiveTab }) => {
         </Nav>
 
         {/* Logout Link (pushed to the bottom) */}
-        <Nav className="mt-auto flex-column">
-           <Nav.Link href="#" className="p-3 my-1 d-flex align-items-center text-dark">
+        <Nav className="mt-auto flex-column" >
+           <Nav.Link href="/" className="p-3 my-1 d-flex align-items-center text-dark" >
              <LogOut size={20} />
-             <span className="ms-3">Logout</span>
+             <span onClick={logout} className="ms-3" >Logout</span>
            </Nav.Link>
         </Nav>
 
@@ -63,11 +63,6 @@ const Sidebar = ({ isOpen, setIsOpen, activeTab, setActiveTab }) => {
 
   return (
     <>
-      {/* This Offcanvas component handles everything:
-        - `responsive="lg"` makes it a static sidebar on large screens and a toggleable one on smaller screens.
-        - `show={isOpen}` controls its visibility on smaller screens.
-        - `onHide={handleClose}` allows it to be closed by clicking the backdrop or the close button.
-      */}
       <Offcanvas show={isOpen} onHide={handleClose} responsive="lg" placement="start" className="shadow-lg" style={{ width: '260px' }}>
         {sidebarContent}
       </Offcanvas>
