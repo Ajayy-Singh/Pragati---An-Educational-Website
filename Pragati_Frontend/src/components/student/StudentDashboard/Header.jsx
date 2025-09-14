@@ -18,6 +18,9 @@ const Header = ({ user, setIsSidebarOpen, searchTerm, setSearchTerm }) => {
 
   const {logout} = useContext(AuthContext);
 
+  console.log(user);
+  
+
 
   // Custom Toggle for the Profile Dropdown to include the user avatar and name
   const ProfileToggle = React.forwardRef(({ children, onClick }, ref) => (
@@ -30,9 +33,9 @@ const Header = ({ user, setIsSidebarOpen, searchTerm, setSearchTerm }) => {
       }}
       className="d-flex align-items-center text-decoration-none text-dark"
     >
-      <Image src={user.avatar} alt={user.name} roundedCircle style={{ width: '36px', height: '36px' }} />
+      <Image src={user?.avatar} alt={user.fullName} roundedCircle style={{ width: '36px', height: '36px' }} />
       <div className="d-none d-sm-block ms-2 text-start">
-        <div className="fw-semibold small">{user.name}</div>
+        <div className="fw-semibold small">{user.fullName}</div>
         <div className="text-muted" style={{ fontSize: '0.75rem' }}>Student</div>
       </div>
       <ChevronDown size={18} className="ms-2 text-muted" />

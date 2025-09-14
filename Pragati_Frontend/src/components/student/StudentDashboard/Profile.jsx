@@ -32,7 +32,7 @@ const [isEditModalOpen, setEditModalOpen] = useState(false);
                         <div className="text-center flex-grow-1 text-md-start">
                             <h3 className="h3 fw-bold text-dark">{user.name}</h3>
                             <p className="text-muted">{user.email}</p>
-                            <p className="mt-1 small text-muted">Joined: {user.joined}</p>
+                            <p className="mt-1 small text-muted">Joined: {new Date(user.createdAt).toLocaleDateString()}</p>
                         </div>
                         <Button
                             variant="primary-subtle"

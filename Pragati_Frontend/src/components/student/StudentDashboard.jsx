@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container } from 'react-bootstrap';
+import axios from "axios"
 
 // Import all the components we've converted
 import Sidebar from './StudentDashboard/Sidebar';
@@ -27,7 +28,7 @@ import { AuthContext } from '../../AuthProvider';
 export default function StudentDashboard() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [activeTab, setActiveTab] = useState('Dashboard');
-    const [user, setUser] = useState(initialUser);
+    const [user, setUser] = useState({});
     const [searchTerm, setSearchTerm] = useState('');
     const [courses, setCourses] = useState(allCourses);
 
@@ -47,12 +48,9 @@ export default function StudentDashboard() {
     }, [searchTerm, activeTab]);
 
     useEffect(()=>{
-        const token = localStorage.getItem("token");
-        if(!token){
-            alert("SignIn Required")
-            navigate('/')
-        }
-    })
+        fetchUser();
+    },[])
+    
 
     const renderContent = () => {
         switch (activeTab) {
@@ -68,6 +66,60 @@ export default function StudentDashboard() {
                 return <DashboardHome user={user} />;
         }
     };
+
+
+    // getUser
+//   const fetchUser = async () => {
+//   const token = localStorage.getItem("token");
+// //   const token = localStorage.getItem("email");
+//   if (!token) {
+//     alert("SignIn Required");
+//     navigate("/");
+//     return;
+//   }
+
+//   try {
+//     // const res = await axios.get(`http://localhost:5000/api/auth/getuser/${token}`, {
+//     const res = await axios.get(`http://localhost:5000/api/auth/getuser`, {
+//       headers: {
+//         "Content-Type": "application/json",
+//         Authorization: `Bearer ${token}`,
+//       },
+//     });
+    
+//     setUser(res.data.user[0]);
+//     console.log("Fetched user:", res.data.user);
+//   } catch (error) {
+//     alert("Failed to Fetch Profile");
+//     console.error(error.response ? error.response.data : error.message);
+//   }
+// };
+const fetchUser = async () => {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    alert("SignIn Required");
+    navigate("/");
+    return;
+  }
+
+  try {
+    const res = await axios.get("http://localhost:5000/api/auth/getuser", {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    // ✅ user is an object, not array
+    setUser(res.data.user);
+    console.log("Fetched user:", res.data.user);
+  } catch (error) {
+    alert("Failed to Fetch Profile");
+    console.error("Fetch user error:", error.response?.data || error.message);
+  }
+};
+
+
 
     return (
         <div className="d-flex bg-light" style={{ minHeight: '100vh' }}>

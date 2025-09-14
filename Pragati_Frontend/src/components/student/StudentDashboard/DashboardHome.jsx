@@ -29,12 +29,11 @@ import { stats, deadlines, allCourses } from './mockData'; // Import mock data
 
 
 const DashboardHome = ({ user }) => {
-    
     return (
     <>
         {/* Welcome Banner */}
         <div className="p-5 mb-4 text-white shadow-lg bg-primary rounded-4">
-            <h2 className="display-5 fw-bold">Welcome back, {user.name.split(' ')[0]}!</h2>
+            <h2 className="display-5 fw-bold">Welcome back, {user.fullName}!</h2>
             <p className="col-md-8 fs-5" style={{ opacity: 0.8 }}>
                 Ready to continue your learning journey? Let's make today productive.
             </p>

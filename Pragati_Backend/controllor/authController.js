@@ -67,7 +67,6 @@ export const login = async (req, res) => {
 
     // 2. Find user
     const user = await User.findOne({ email });
-    console.log(user);
     if(user.role === 'admin') {
       const adminToken = jwt.sign(
       { id: user._id, email: user.email, role: user.role },
@@ -105,3 +104,20 @@ export const login = async (req, res) => {
     return res.status(500).json({ message: error.message });
   }
 };
+
+
+
+//get user
+export const getUser = async (req,res)=>{
+  try {
+    // const user = req.params.email;
+    const user = req.user;
+    // const existingUser = await User.find({email:user});
+    const existingUser = await User.findById(user._id);
+    if(user){
+      return res.status(201).json({message: "User found", user: existingUser})
+    }
+  } catch (error) {
+    return res.status(500).json({message: "something went wrong", error})
+  }
+}
