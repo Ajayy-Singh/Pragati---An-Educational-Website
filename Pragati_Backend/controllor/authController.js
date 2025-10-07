@@ -5,10 +5,10 @@ import jwt from "jsonwebtoken";
 // Signup
 export const signup = async (req, res) => {
   try {
-    const { fullName, email, password } = req.body;
+    const { fullName, email, password, avatar } = req.body;
 
     // 1. Validate input
-    if (!fullName || !email || !password) {
+    if (!fullName || !email || !password || !avatar) {
       return res.status(400).json({ message: "All fields are required" });
     }
 
@@ -27,6 +27,7 @@ export const signup = async (req, res) => {
       email,
       password: hashedPassword,
       role: "user",
+      avatar,
     });
 
     // 5. Generate JWT
@@ -36,11 +37,13 @@ export const signup = async (req, res) => {
       { expiresIn: "1h" }
     );
 
+    console.log(newUser);
     return res.status(201).json({
       message: "User created successfully",
-      user: { id: newUser._id, fullName: newUser.fullName, email: newUser.email },
+      user: { id: newUser._id, fullName: newUser.fullName, email: newUser.email, avatar: newUser.avatar },
       token,
     });
+    
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: error.message });
@@ -76,7 +79,7 @@ export const login = async (req, res) => {
 
     return res.status(200).json({
       message: "Login successful",
-      user: { id: user._id, fullName: user.fullName, email: user.email, role: user.role },
+      user: { id: user._id, fullName: user.fullName, email: user.email, role: user.role, avatar: user.avatar },
       token: adminToken,
     })
     }
@@ -94,15 +97,17 @@ export const login = async (req, res) => {
       { expiresIn: "1d" }
     );
 
+    console.log(user);
+
     return res.status(200).json({
       message: "Login successful",
-      user: { id: user._id, fullName: user.fullName, email: user.email, role: user.role },
+      user: { id: user._id, fullName: user.fullName, email: user.email, role: user.role, avatar: user.avatar },
       token,
     });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: error.message });
-  }
+  } 
 };
 
 

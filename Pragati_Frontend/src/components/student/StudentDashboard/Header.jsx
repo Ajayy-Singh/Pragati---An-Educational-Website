@@ -68,8 +68,12 @@ const Header = ({ user, setIsSidebarOpen, searchTerm, setSearchTerm }) => {
 
         {/* Right-aligned Nav Items */}
         <Nav className="flex-row ms-auto d-flex align-items-center" style={{ gap: '1.25rem' }}>
+          
+          
+          
           {/* Notifications Dropdown */}
-          <Dropdown show={isNotificationsOpen} onToggle={() => setNotificationsOpen(!isNotificationsOpen)} align="end">
+
+          {/* <Dropdown show={isNotificationsOpen} onToggle={() => setNotificationsOpen(!isNotificationsOpen)} align="end">
             <Dropdown.Toggle as={Nav.Link} className="p-0 position-relative">
               <Bell size={22} />
               <Badge pill bg="danger" className="top-0 position-absolute start-100 translate-middle" style={{ padding: '0.2em 0.3em', fontSize: '0.5rem' }}>
@@ -88,7 +92,7 @@ const Header = ({ user, setIsSidebarOpen, searchTerm, setSearchTerm }) => {
                   </Dropdown.Item>
                 ))}
             </Dropdown.Menu>
-          </Dropdown>
+          </Dropdown> */}
 
           {/* Profile Dropdown */}
           <Dropdown show={isProfileOpen} onToggle={() => setProfileOpen(!isProfileOpen)} align="end">
