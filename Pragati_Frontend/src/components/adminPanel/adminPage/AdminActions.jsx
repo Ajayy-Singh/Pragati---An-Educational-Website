@@ -26,7 +26,7 @@ const AdminActions = ({ selectedAction }) => {
             {/* 1. Admin Profile */}
             <div className="d-flex align-items-center mb-4">
               <img
-                src="https://i.pravatar.cc/60"
+                src="https://media.licdn.com/dms/image/v2/D4D03AQG3nUWI6hXE2g/profile-displayphoto-scale_400_400/B4DZlyzAGaIcAk-/0/1758567597470?e=1761782400&v=beta&t=_EgwuOcy2OmlcNGTuRvh1Zepbmd1HEay3kEA1X9Rmjo"
                 alt="Admin"
                 className="rounded-circle me-3"
                 style={{ width: "60px", height: "60px" }}

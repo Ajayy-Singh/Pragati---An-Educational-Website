@@ -6,6 +6,7 @@ import { Clock, CheckCircle, Calendar } from 'lucide-react';
 // 👇 IMPORT FOR THE CHILD COMPONENT IS ADDED HERE
 import ContinueLearningItem from './ContinueLearningItem'; 
 import { stats, deadlines, allCourses } from './mockData'; // Import mock data
+import RecentFiles from './recentFiles';
 
 // MOCK DATA (needs to be available in this file or imported)
 // const stats = [
@@ -32,7 +33,8 @@ const DashboardHome = ({ user }) => {
     return (
     <>
         {/* Welcome Banner */}
-        <div className="p-5 mb-4 text-white shadow-lg bg-primary rounded-4">
+        
+        <div className="p-5 mb-4 text-white shadow-lg rounded-4">
             <h2 className="display-5 fw-bold">Welcome back, {user.fullName}!</h2>
             <p className="col-md-8 fs-5" style={{ opacity: 0.8 }}>
                 Ready to continue your learning journey? Let's make today productive.
@@ -57,15 +59,18 @@ const DashboardHome = ({ user }) => {
         {/* Main Content Grid */}
         <Row className="g-4">
             {/* Left Column: Continue Learning */}
-            <Col lg={8}>
+            {/* <Col lg={8}>
                 <h3 className="mb-3 h4 fw-semibold text-dark">Continue Learning</h3>
                 <div className="gap-3 d-grid">
                     {allCourses.filter(c => c.progress < 100).slice(0, 2).map(course => (
                         <ContinueLearningItem key={course.id} course={course} />
                     ))}
                 </div>
-            </Col>
-            
+            </Col> */}
+
+            <RecentFiles currentUser={user} />
+
+
             {/* Right Column: Upcoming Deadlines */}
             <Col lg={4}>
                 <Card className="border-0 shadow-sm rounded-4 h-100">

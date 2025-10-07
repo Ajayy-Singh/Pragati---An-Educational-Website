@@ -23,7 +23,7 @@ const [isEditModalOpen, setEditModalOpen] = useState(false);
                     {/* Top section with avatar, info, and edit button */}
                     <div className="d-flex flex-column flex-md-row align-items-center">
                         <Image
-                            src={user.avatar}
+                            src={user.avatar} // update karna hai for taking url of image  
                             alt={user.name}
                             roundedCircle
                             className="mb-4 mb-md-0 me-md-4"

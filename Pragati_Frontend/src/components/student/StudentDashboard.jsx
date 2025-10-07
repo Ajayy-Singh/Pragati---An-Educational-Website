@@ -4,7 +4,9 @@ import axios from "axios"
 
 // Import all the components we've converted
 import Sidebar from './StudentDashboard/Sidebar';
-import Header from './StudentDashboard/Header';
+// import Header from './StudentDashboard/Header'; //commented for testing
+import Header from '../../components/Header';      // main header for whole site
+
 import DashboardHome from './StudentDashboard/DashboardHome';
 import MyCourses from './StudentDashboard/MyCourses';
 import Grades from './StudentDashboard/Grades';
@@ -123,12 +125,12 @@ const fetchUser = async () => {
 
     return (
         <div className="d-flex bg-light" style={{ minHeight: '100vh' }}>
-            <Sidebar 
+            {/* <Sidebar 
                 isOpen={isSidebarOpen} 
                 setIsOpen={setIsSidebarOpen} 
                 activeTab={activeTab} 
                 setActiveTab={setActiveTab} 
-            />
+            />                              {/* commented for testing this is the sidebar of student dashboard */}
             
             <div className="d-flex flex-column flex-grow-1" style={{ overflow: 'hidden' }}>
                 <Header 

@@ -12,6 +12,7 @@ const Login = ({ show, handleClose }) => {
   const [isSignup, setIsSignup] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
+    avatar: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -33,9 +34,11 @@ const Login = ({ show, handleClose }) => {
         alert(res.data.message);
         setFormData({
           fullName: "",
+          avatar: "",
           email: "",
           password: "",
           confirmPassword: "",
+
         });
       }
       setIsSignup(false);
@@ -69,7 +72,7 @@ const Login = ({ show, handleClose }) => {
         }else if(res.data.user.role === "user"){
           navigate('/')
         }
-        // console.log(res.data.token);
+        
 
         handleClose();
       }
@@ -148,6 +151,18 @@ const Login = ({ show, handleClose }) => {
                 required
                 name="fullName"
                 value={formData.fullName}
+                onChange={handleChange}
+              />
+            </Form.Group>
+           
+            <Form.Group className="mb-3">
+              <Form.Label>Avatar URL</Form.Label>
+              <Form.Control
+                type="URL"
+                placeholder="Enter your avatar URL"
+                required
+                name="avatar"
+                value={formData.avatar}
                 onChange={handleChange}
               />
             </Form.Group>

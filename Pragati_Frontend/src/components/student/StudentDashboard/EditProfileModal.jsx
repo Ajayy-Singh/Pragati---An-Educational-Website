@@ -25,6 +25,16 @@ const EditProfileModal = ({ user, setUser, show, handleClose }) => {
 
   <Form onSubmit={handleSubmit}>
     <Modal.Body className="bg-white">
+      <Form.Group className="mb-3" controlId="formProfileAvatar">
+        <Form.Label className="fw-medium small">AvatarURL</Form.Label>
+        <Form.Control 
+          type="URL" 
+          name="AvatarURL" 
+          value={formData.AvatarURL} 
+          onChange={handleChange}
+        />
+      </Form.Group>
+      
       <Form.Group className="mb-3" controlId="formProfileName">
         <Form.Label className="fw-medium small">Name</Form.Label>
         <Form.Control 
