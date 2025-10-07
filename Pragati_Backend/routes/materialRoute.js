@@ -4,6 +4,7 @@ import {
   addMaterial,
   updateMaterial,
   deleteMaterial,
+  getMaterialsBySemester
 } from "../controllor/materialController.js";
 import { authenticateUser } from "../Middleware/authMiddleware.js";
 import multer from "multer";
@@ -30,5 +31,10 @@ router.post("/add", authenticateUser, upload.single("file"), addMaterial);
 router.put("/:id", authenticateUser, upload.single("file"), updateMaterial);
 
 router.delete("/:id", authenticateUser, deleteMaterial);
+
+//to get the material semesterwise
+// materialRoutes.js
+router.get("/semester/:sem", authenticateUser, getMaterialsBySemester);
+
 
 export default router;

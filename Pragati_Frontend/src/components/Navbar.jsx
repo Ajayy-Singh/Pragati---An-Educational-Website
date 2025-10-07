@@ -10,6 +10,7 @@ const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
 
   const {isLoggedIn, logout} = useContext(AuthContext);
+  
 
   return (
     <>

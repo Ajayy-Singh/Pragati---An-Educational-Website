@@ -65,6 +65,7 @@ const App = ()=> {
         {/* <Route path="/student" element={isLoggedIn ? <StudentDashboard /> : <Login />} />
        */}
        <Route path='/student' element={<StudentDashboard/>}/>
+       {/* <Route path='/admin' element={<AdminPanel/>}/> */}
 
         <Route path="/subjects/:subjectName" element={<SubjectDetails />} />
         <Route path="/subjects/:subjectName/:type" element={<ResourceList />} />

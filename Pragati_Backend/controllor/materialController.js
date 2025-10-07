@@ -171,3 +171,24 @@ export const deleteMaterial = async (req, res) => {
     return res.status(500).json({ message: "Server error" });
   }
 };
+
+
+//get the material semesterwise
+// materialController.js
+export const getMaterialsBySemester = async (req, res) => {
+  try {
+    const { sem } = req.params;
+
+    // Filter materials by semester
+    const materials = await Material.find({ semester: sem });
+
+    if (!materials || materials.length === 0) {
+      return res.status(404).json({ message: "No materials found for this semester" });
+    }
+
+    res.json(materials);
+  } catch (error) {
+    console.error("Error in getMaterialsBySemester:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};

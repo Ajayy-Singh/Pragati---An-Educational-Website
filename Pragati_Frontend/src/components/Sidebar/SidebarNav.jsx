@@ -1,7 +1,11 @@
 import React from "react";
+import { useContext } from "react";
 import { BsHouse, BsPerson, BsShare } from "react-icons/bs"; 
+import { AuthContext } from "../../AuthProvider";
 
 const SidebarNav = ({ active, setActive }) => {
+  const {user} = useContext(AuthContext);
+  console.log("sidebar",user)  
   return (
     <nav className="p-3 flex-grow-1">
       <ul className="gap-2 nav nav-pills flex-column">
@@ -20,8 +24,10 @@ const SidebarNav = ({ active, setActive }) => {
 
         {/* Dashboard */}
         <li className="nav-item">
-          <a
-            href="/student"
+          {user?.role==="admin" ? (
+            <a
+          
+            href="/admin"
             
             className={`btn btn-outline-light w-100 d-flex align-items-center gap-2 ${
               active === "Dashboard" ? "active" : "text-dark"
@@ -30,6 +36,19 @@ const SidebarNav = ({ active, setActive }) => {
           >
             <BsPerson /> Dashboard 
           </a>
+          ) : (
+          <a
+          
+            href="/student"
+            
+            className={`btn btn-outline-light w-100 d-flex align-items-center gap-2 ${
+              active === "Dashboard" ? "active" : "text-dark"
+            }`}
+            onClick={() => setActive("Dashboard")}
+          >
+            <BsPerson /> Dashboard 
+          </a>)} 
+          
 
             
           
